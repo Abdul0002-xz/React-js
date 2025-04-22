@@ -1,8 +1,14 @@
-function App() {
- 
+import Abdul from "./Abdul"
 
+function App() {
   return (
-    <h1>Abdul Fater is here to learn react using vite app setting</h1>
+    <>
+    
+    <h1>Rendering First Tag</h1>
+    <h2>Rendering Third Tag</h2>
+    <Abdul/>
+
+    </>
   )
 }
 
