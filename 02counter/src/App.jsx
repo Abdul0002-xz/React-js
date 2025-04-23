@@ -14,11 +14,19 @@ function App() {
     // console.log("clicked" , counter);
     // counter = counter + 1
 
-    if (counter >= 20) {
-      return; 
-    }
+    // if (counter >= 20) {
+    //   return; 
+    // }
     
-    setCounter(counter + 1 );
+    // setCounter(counter + 1 );
+    // setCounter(counter + 1 );
+    // setCounter(counter + 1 );
+    // setCounter(counter + 1 );
+
+    setCounter(prevCounter => prevCounter + 1 );
+    setCounter(prevCounter => prevCounter + 1 );     //This is an interview question
+    setCounter(prevCounter => prevCounter + 1 );
+    setCounter(prevCounter => prevCounter + 1 );
     
   }
 
