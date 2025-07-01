@@ -1,4 +1,5 @@
 import KgButton from "./Components/KgButton"
+import Hello from "./Components/Hello"
 
 function App(){
 
@@ -6,9 +7,8 @@ function App(){
      <h1>
     I am the best person who is learning reactjs
      </h1>
-
      <KgButton/>
-
+     <Hello/>
   </div>
 
 }
