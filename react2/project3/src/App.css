@@ -1,0 +1,19 @@
+h1{
+  font-weight: 700;
+  font-size: 45px;
+}
+
+.text-size{
+  font-size: 25px;
+  /* margin-top: -10px; */
+  transform: translateY(-20px);
+}
+
+.container{
+  gap: 20px;
+}
+
+body{
+  background-color: #888;
+  color: yellow;
+}
