@@ -1,5 +1,6 @@
 import KgButton from "./Components/KgButton"
 import Hello from "./Components/Hello"
+import Random from "./Components/Random"
 
 function App(){
 
@@ -9,6 +10,13 @@ function App(){
      </h1>
      <KgButton/>
      <Hello/>
+     <Random/>
+     <Random/>
+     <Random/>
+     <Random/>
+     <Random/>
+     <Random/>
+     
   </div>
 
 }
