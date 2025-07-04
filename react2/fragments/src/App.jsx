@@ -1,6 +1,7 @@
 import FoodItems from "./Components/FoodItems";
 import ErrorMessage from "./Components/ErrorMessage";
 import Container from "./Components/Container";
+import FoodInput from "./Components/FoodInput";
 function App() {
   let foodItems = [
     "Chawal",
@@ -18,6 +19,7 @@ function App() {
       <h1>Healthy Foods</h1>
       {/* {foodItems.length === 0 ? <h3>I am still hungry</h3> : null } */}
       <ErrorMessage items={foodItems} />
+      <FoodInput/>
       <FoodItems items={foodItems} />
     </Container>
 

@@ -14,3 +14,15 @@ h1 {
   padding: 18px;
   border-radius: 10px;
 }
+
+.btn-info{
+    float: right;
+    background-color: bisque;
+    border: 1px solid bisque;
+}
+
+.foodInput{
+    width: 100%;
+    padding: 8px;
+    margin: 15px 0px;
+}
