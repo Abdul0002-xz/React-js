@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outer-container {
+  border: 1px solid rgba(0, 0, 0, 0.338);
+  width: 200px;
+}
+
+.display {
+  margin: 20px;
+  width: 160px;
+  font-size: 25px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.buttons {
+  width: 45px;
+  height: 45px;
+  margin: 5px;
+}
