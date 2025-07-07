@@ -1,9 +1,10 @@
 import { Button } from "bootstrap";
 
-const Item = ({ foodItem }) => {
-  let handleButtonClicked = (foodItem) => {
-    alert(`${foodItem} is successfully bought`);
-  };
+const Item = ({ foodItem , handleBuyButton}) => {
+  
+  // let handleButtonClicked = (foodItem) => {
+  //   alert(`${foodItem} is successfully bought`);
+  // };
 
   // let {foodItem} = props; //Array destructuring method
   return (
@@ -12,7 +13,7 @@ const Item = ({ foodItem }) => {
       <button
         type="button"
         className="btn btn-info"
-        onClick={() => handleButtonClicked(foodItem)}
+        onClick={handleBuyButton}
       >
         Buy
       </button>
