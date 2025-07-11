@@ -1,11 +1,11 @@
-const FoodInput = ({handleChangeEvent}) => {
+const FoodInput = ({handleKeyDown}) => {
   
   return (
     <input
       type="text"
       placeholder="Enter your choice here"
       className="foodInput"
-      onChange={handleChangeEvent}
+      onKeyDown={handleKeyDown}
     />
   );
 };

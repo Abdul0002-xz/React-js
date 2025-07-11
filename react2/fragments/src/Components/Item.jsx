@@ -1,6 +1,6 @@
 import { Button } from "bootstrap";
 
-const Item = ({ foodItem , handleBuyButton}) => {
+const Item = ({ foodItem , handleBuyButton , bought}) => {
   
   // let handleButtonClicked = (foodItem) => {
   //   alert(`${foodItem} is successfully bought`);
@@ -8,7 +8,7 @@ const Item = ({ foodItem , handleBuyButton}) => {
 
   // let {foodItem} = props; //Array destructuring method
   return (
-    <li className="list-group-item">
+    <li className={`list-group-item ${bought && 'active'}  `}>
       {foodItem}
       <button
         type="button"
