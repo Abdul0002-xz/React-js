@@ -1,23 +1,33 @@
-import { useState } from "react";
+import {  useRef } from "react";
 import { IoIosAddCircle } from "react-icons/io";
 
 function AddTodo({ onNewItem }) {
-  const [todoName, setTodoName] = useState("");
-  const [dueDate, setDueDate] = useState("");
+  // const [todoName, setTodoName] = useState("");
+  // const [dueDate, setDueDate] = useState("");
+  // const noOfUpdates = useRef(0);
+  const todoNameElement = useRef();
+  const dueDateElement = useRef();
 
-  const handleNameChange = (event) => {
-    setTodoName(event.target.value);
-  };
+  // const handleNameChange = (event) => {
+  //   setTodoName(event.target.value);
+  //   // noOfUpdates.current += 1;
+  // };
 
-  const handleDateChange = (event) => {
-    setDueDate(event.target.value);
-  };
+  // const handleDateChange = (event) => {
+  //   setDueDate(event.target.value);
+  //   // console.log(`noOfupdates are ${noOfUpdates.current} `);
+  // };
 
   const handleAddButtonClicked = (event) => {
     event.preventDefault();
+    const todoName = todoNameElement.current.value;
+    const dueDate = dueDateElement.current.value;
+    // console.log(`${todoName} due on : ${dueDate}`);
+    todoNameElement.current.value = "";
+    dueDateElement.current.value = "";
     onNewItem(todoName, dueDate);
-    setDueDate("");
-    setTodoName("");
+    // setDueDate("");
+    // setTodoName("");
   };
 
   return (
@@ -27,12 +37,17 @@ function AddTodo({ onNewItem }) {
           <input
             type="text"
             placeholder="Enter Todo Here"
-            value={todoName}
-            onChange={handleNameChange}
+            // value={todoName}
+            ref={todoNameElement}
+            // onChange={handleNameChange}
           />
         </div>
         <div className="col-4">
-          <input type="date" value={dueDate} onChange={handleDateChange} />
+          <input type="date" 
+          // value={dueDate}
+          ref={dueDateElement} 
+          // onChange={handleDateChange}
+           />
         </div>
         <div className="col-2">
           <button
@@ -41,7 +56,6 @@ function AddTodo({ onNewItem }) {
             type="submit"
             className="btn btn-success kg-button"
             // onClick={handleAddButtonClicked}
-            
           >
             <IoIosAddCircle />
           </button>
