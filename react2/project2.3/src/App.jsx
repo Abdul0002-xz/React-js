@@ -32,18 +32,18 @@ function App() {
     <TodoItemsContext.Provider
       value={{
         todoItems: todoItems,
-        AddNewItem : AddNewItem,
-        DeleteItem : DeleteItem
+        AddNewItem: AddNewItem,
+        DeleteItem: DeleteItem,
       }}
     >
       <center className="todo-container">
         <AppName />
-        <AddTodo 
-        // onNewItem={handleNewItem} 
+        <AddTodo
+        // onNewItem={handleNewItem}
         />
         {/* {todoItems.length === 0 &&  */}
         <WelcomeMessage></WelcomeMessage>
-        <TodoItems 
+        <TodoItems
         // onDeleteClick={handleDeleteItem}
         ></TodoItems>
       </center>
