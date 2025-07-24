@@ -1,0 +1,26 @@
+ul{
+  list-style: none;
+
+}
+
+li{
+  display: inline-block;
+  margin: 0 10px;
+  padding: 10px;
+  background-color: #8888 ;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+body{
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.active-link{
+  font-weight: bold;
+  color: red;
+  text-decoration: underline;
+}
