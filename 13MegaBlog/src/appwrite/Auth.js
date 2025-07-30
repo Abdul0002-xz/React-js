@@ -43,7 +43,26 @@ class Auth {
         }
     }
 
-    
+    async getCurrentUser(){
+        try {
+            
+            return await this.Account.get();
+
+        } catch (error) {
+            console.error("Account does not find :", error.message);
+            throw new Error("Unable to Find account. Please try again.");
+            
+        }
+    }
+
+    async Logout(){
+        try {
+            await this.Account.deleteSessions();
+        } catch (error) {
+           console.error("Account Logout :", error.message);
+            throw new Error("Account Login."); 
+        }
+    }
 
 
 };
