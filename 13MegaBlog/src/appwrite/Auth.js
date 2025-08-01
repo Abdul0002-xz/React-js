@@ -35,7 +35,7 @@ class Auth {
 
     async Login({ email, password }) {
         try {
-            return this.Account.createEmailPasswordSession(email, password);
+            return this.Account.createEmailSession(email,password);
         }
         catch (error) {
             console.error("Account Login failed:", error.message);
