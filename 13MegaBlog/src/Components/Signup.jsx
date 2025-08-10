@@ -1,0 +1,117 @@
+import React, { useState } from "react";
+import AuthService from "../appwrite/Auth";
+import { login as authLogin } from "../store/authSlice";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { Button, Input, Logo } from "./index";
+import { Link, useNavigate } from "react-router-dom";
+
+function Signup() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
+  const [error, setError] = useState();
+
+  const create = async (data) => {
+    setError("");
+    try {
+      const userData = await AuthService.createAccount(data);
+      if (userData) {
+        const userData = await AuthService.getCurrentUser();
+        if (userData) {
+          dispatch(authLogin(userData));
+          navigate("/");
+        }
+      }
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  return (
+    <div className="flex items-center justify-center">
+      <div
+        className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
+      >
+        <div className="mb-2 flex justify-center">
+          <span className="inline-block w-full max-w-[100px]">
+            <Logo width="100%" />
+          </span>
+        </div>
+        <h2 className="text-center text-2xl font-bold leading-tight">
+          Sign up to create account
+        </h2>
+        <p className="mt-2 text-center text-base text-black/60">
+          Already have an account?&nbsp;
+          <Link
+            to="/login"
+            className="font-medium text-primary transition-all duration-200 hover:underline"
+          >
+            Sign In
+          </Link>
+        </p>
+        {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
+
+        <form onSubmit={handleSubmit(create)}>
+          <div className="space-y-5">
+            <Input
+              label="Full Name : "
+              placeholder="Enter Your name"
+              {...register("name", {
+                required: true,
+                pattern: {
+                  value: /^[A-Za-z]+(?: [A-Za-z]+)+$/,
+                  message:
+                    "Enter your First name and last name by using only Letters",
+                },
+                minLength: {
+                  value: 3,
+                  message: "Your name must be atleast 3 characters long",
+                },
+              })}
+            />
+
+            <Input
+              label="Email"
+              placeholder="Enter Your email"
+              type="email"
+              {...register("email", {
+                required: true,
+                validate: {
+                  matchPattern: (value) =>
+                    /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                    "Email Address must be a valid address",
+                },
+              })}
+            />
+
+            <Input
+              label="Password"
+              placeholder="Enter Your Password"
+              type="password"
+              {...register("password", {
+                required: true,
+                pattern: {
+                  value:
+                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                  message:
+                    "Password must contain upperCase , lowercase , numbers and special characters",
+                },
+                minLength: {
+                  value: 8,
+                  message: "Your password must be atleast 8 characters long",
+                },
+              })}
+            />
+
+            <Button type="submit" className="w-full">
+              Create Account
+            </Button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default Signup;
