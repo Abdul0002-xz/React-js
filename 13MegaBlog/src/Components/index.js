@@ -7,6 +7,10 @@ import Button from "./Button";
 import Input  from "./Input.jsx"
 import  Select  from './Select.jsx'
 import RTE from "./RTE.jsx";
+import Signup from "../Components/Signup.jsx";
+import Login  from '../Components/Login.jsx'
+import PostForm  from '../Components/post-form/PostForm.jsx'
+import PostCard  from '../Components/PostCard.jsx'
 
 export{
     Header,
@@ -17,5 +21,9 @@ export{
     Button,
     Input,
     Select,
-    RTE
+    RTE,
+    Signup,
+    Login,
+    PostForm,
+    PostCard
 }
